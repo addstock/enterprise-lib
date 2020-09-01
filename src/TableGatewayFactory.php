@@ -1,11 +1,5 @@
 <?php
 
-/**
- * @see       https://github.com/laminas-api-tools/EnterpriseLib-example for the canonical source repository
- * @copyright https://github.com/laminas-api-tools/EnterpriseLib-example/blob/master/COPYRIGHT.md
- * @license   https://github.com/laminas-api-tools/EnterpriseLib-example/blob/master/LICENSE.md New BSD License
- */
-
 namespace EnterpriseLib;
 
 use DomainException;
@@ -29,15 +23,10 @@ class TableGatewayFactory
         $table = 'status';
         if ($services->has('config')) {
             $config = $services->get('config');
-            switch (isset($config['EnterpriseLib'])) {
-                case true:
-                    $config = $config['EnterpriseLib'];
-                    $db     = isset($config['db']) ? $config['db'] : $db;
-                    $table  = isset($config['table']) ? $config['table'] : $table;
-                    break;
-                case false:
-                default:
-                    break;
+            if (isset($config['EnterpriseLib'])) {
+                $config = $config['EnterpriseLib'];
+                $db     = isset($config['db']) ? $config['db'] : $db;
+                $table  = isset($config['table']) ? $config['table'] : $table;
             }
         }
 
@@ -52,3 +41,4 @@ class TableGatewayFactory
         return new TableGateway($table, $services->get($db));
     }
 }
+ +b

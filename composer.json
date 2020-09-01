@@ -10,6 +10,14 @@
     "config": {
         "sort-packages": true
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1-dev"
+        },
+        "laminas": {
+            "module": "EnterpriseLib"
+        }
+    },
     "require": {
         "php": "^5.6 || ^7.0",
         "laminas-api-tools/api-tools-configuration": "^1.0",
@@ -19,11 +27,14 @@
         "laminas/laminas-paginator": "^2.7",
         "laminas/laminas-stdlib": "^2.7.7 || ^3.0.1",
         "laminas/laminas-zendframework-bridge": "^1.0",
-        "ramsey/uuid": "^2.8"
+        "ramsey/uuid": "^2.8",
+        "doctrine/orm": "^2.6.2",
+        "symfony/yaml": "2.*"
     },
     "autoload": {
         "psr-4": {
             "EnterpriseLib\\": "src/"
-        }
+        },
+        "psr-0": {"": "src/"}
     }
 }
