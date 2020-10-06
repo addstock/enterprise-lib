@@ -41,4 +41,3 @@ class TableGatewayFactory
         return new TableGateway($table, $services->get($db));
     }
 }
- +b
