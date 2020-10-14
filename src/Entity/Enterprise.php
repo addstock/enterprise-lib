@@ -2,12 +2,41 @@
 
 namespace EnterpriseLib\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
 use EnterpriseLib\Models\LocationInterface;
+use Doctrine\Common\Collections\ArrayCollection;
 
-public class Enterprise {
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="enterprise")
+ */
+class Enterprise {
+    /** 
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
+    private $id;
+    
+    /** 
+     * @ORM\Column(type="string", length=100) 
+     */
     private $name;
+    
+    /** 
+     * @ORM\Column(type="string") 
+     */
     private $logo;
+    
+    /** 
+     * @ORM\Column(type="text") 
+     */
     private $description;
+
+    /**
+     * @ORM\OneToMany(targetEntity="users", mappedBy="enterprise", indexBy="enterpriseId")
+     * @var User[]
+     */
     private $users;
 
     /**
@@ -17,14 +46,13 @@ public class Enterprise {
      */
     private $location;
 
-    public __construct()
-    {}
-
+    public function __construct() {
+        $this->users = new ArrayCollection();
+    }
 
     /**
      *
      * @return String
-     * @author 
      **/
     public function getName()
     {
@@ -34,7 +62,6 @@ public class Enterprise {
     /**
      *
      * @return void
-     * @author 
      **/
     public function setName($name)
     {
@@ -44,7 +71,6 @@ public class Enterprise {
     /**
      *
      * @return String
-     * @author 
      **/
     public function getLogo()
     {
@@ -54,7 +80,6 @@ public class Enterprise {
     /**
      *
      * @return void
-     * @author 
      **/
     public function setLogo($logo)
     {
@@ -64,7 +89,6 @@ public class Enterprise {
     /**
      *
      * @return String
-     * @author 
      **/
     public function getDescription()
     {
@@ -74,7 +98,6 @@ public class Enterprise {
     /**
      *
      * @return void
-     * @author 
      **/
     public function setDescription($description)
     {
@@ -84,7 +107,6 @@ public class Enterprise {
     /**
      *
      * @return User[]
-     * @author 
      **/
     public function getUsers()
     {
@@ -94,7 +116,6 @@ public class Enterprise {
     /**
      *
      * @return void
-     * @author 
      **/
     public function setUsers($users)
     {
@@ -103,7 +124,6 @@ public class Enterprise {
 
     /**
      * @return void
-     * @author 
      **/
     public function setLocation(LocationInterface $location)
     {
@@ -112,7 +132,6 @@ public class Enterprise {
 
     /**
      * @return LocationInterface
-     * @author 
      **/
     public function getLocation()
     {

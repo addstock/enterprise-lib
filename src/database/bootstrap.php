@@ -14,8 +14,12 @@ $config = Setup::createAnnotationMetadataConfiguration([__DIR__."/../Entity"], $
 
 // database configuration parameters
 $conn = [
-    'driver' => 'pdo_sqlite',
-    'path' => __DIR__ . '/db.sqlite',
+    'driver' => 'pdo_pgsql',
+    'user' => 'addstockuser',
+    'password' => 'MirCamFix',
+    'host' => 'localhost',
+    'port' => '5432',
+    'dbname' => 'addstockdb',
 ];
 
 // obtaining the entity manager
