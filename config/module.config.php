@@ -37,5 +37,12 @@ return [
                 ],
             ],
         ],
+        'connection_params' => [
+            'user' => '',
+            'password' => '',
+            'host' => '',
+            'port' => '',
+            'dbname' => '',
+        ],
     ],
 ];
