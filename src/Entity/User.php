@@ -37,6 +37,13 @@ class User
     private $enterpriseId;
 
     /**
+     * @ORM\Column(type="integer")
+     * @ORM\OneToOne(targetEntity="role", mappedBy="users")
+     * @var int
+     */
+    private $assigned;
+
+    /**
      * 
      * @return int 
      */

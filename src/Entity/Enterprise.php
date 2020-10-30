@@ -34,7 +34,7 @@ class Enterprise {
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="users", mappedBy="enterprise", indexBy="enterpriseId")
+     * @ORM\OneToMany(targetEntity="user", mappedBy="enterprise", indexBy="enterpriseId")
      * @var User[]
      */
     private $users;
