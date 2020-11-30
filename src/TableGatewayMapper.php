@@ -12,7 +12,7 @@ use Traversable;
 /**
  * Mapper implementation using a Laminas\Db\TableGateway
  */
-class TableGatewayMapper implements MapperInterface
+class TableGatewayMapper implements EnterpriseMapperInterface
 {
     /**
      * @var TableGateway

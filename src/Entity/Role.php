@@ -28,7 +28,7 @@ class Role {
 	 * undocumented function
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function getId()
 	{
@@ -39,7 +39,7 @@ class Role {
 	 * undocumented function
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function setId($id)
 	{
@@ -50,7 +50,7 @@ class Role {
 	 * undocumented function
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function getName()
 	{
@@ -61,7 +61,7 @@ class Role {
 	 * undocumented function
 	 *
 	 * @return void
-	 * @author 
+	 * @author
 	 **/
 	public function setName($name)
 	{

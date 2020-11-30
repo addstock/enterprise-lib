@@ -11,25 +11,25 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table(name="enterprise")
  */
 class Enterprise {
-    /** 
+    /**
      * @ORM\Id
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      */
     private $id;
-    
-    /** 
-     * @ORM\Column(type="string", length=100) 
+
+    /**
+     * @ORM\Column(type="string", length=100)
      */
     private $name;
-    
-    /** 
-     * @ORM\Column(type="string") 
+
+    /**
+     * @ORM\Column(type="string")
      */
     private $logo;
-    
-    /** 
-     * @ORM\Column(type="text") 
+
+    /**
+     * @ORM\Column(type="text")
      */
     private $description;
 
@@ -40,8 +40,8 @@ class Enterprise {
     private $users;
 
     /**
-     * Simple access to location 
-     * 
+     * Simple access to location
+     *
      * @var LocationInterface
      */
     private $location;

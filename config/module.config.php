@@ -8,7 +8,7 @@ return [
     ],
     'service_manager' => [
         'aliases' => [
-            Mapper::class => ArrayMapper::class,
+            Mapper::class => TableGatewayMapper::class,
 
             // Legacy Zend Framework aliases
         ],
@@ -36,8 +36,10 @@ return [
                     'Entity' => 'my_annotation_driver'
                 ],
             ],
+            'isDevMode' => false,
         ],
         'connection_params' => [
+            'driver'   => 'pdo_pgsql',
             'user' => '',
             'password' => '',
             'host' => '',

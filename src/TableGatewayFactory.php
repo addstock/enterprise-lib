@@ -5,15 +5,7 @@ namespace EnterpriseLib;
 use DomainException;
 
 /**
- * Service factory for the EnterpriseLib TableGateway
- *
- * If the "EnterpriseLib" key is present, and either the "db" or "table" subkeys
- * are present and valid, uses those; otherwise, uses defaults of "Db\EnterpriseLib"
- * and "status", respectively.
- *
- * If the DB service does not exist, raises an error.
- *
- * Otherwise, creates a TableGateway instance with the DB service and table.
+ * Service factory for the EnterpriseLib TableGateway.
  */
 class TableGatewayFactory
 {

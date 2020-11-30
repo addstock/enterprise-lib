@@ -5,7 +5,7 @@ namespace EnterpriseLib\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity 
+ * @ORM\Entity
  * @ORM\Table(name="users")
  */
 class User
@@ -44,8 +44,8 @@ class User
     private $assigned;
 
     /**
-     * 
-     * @return int 
+     *
+     * @return int
      */
     public function getId()
     {
@@ -53,7 +53,7 @@ class User
     }
 
     /**
-     * 
+     *
      * @return string
      */
     public function getFirstname()
@@ -98,7 +98,7 @@ class User
 
     /**
      * @return void
-     * @author 
+     * @author
      **/
     public function setEnterpriseId($enterpriseId)
     {
