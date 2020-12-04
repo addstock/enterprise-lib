@@ -10,7 +10,11 @@ $isDevMode = true;
 $proxyDir = null;
 $cache = null;
 $useSimpleAnnotationReader = false;
-$config = Setup::createAnnotationMetadataConfiguration([__DIR__."/../Entity"], $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
+$doctrine_type_mappings = [
+                'enum' => 'string',
+                'status_options' => 'string',
+            ];
+$config = Setup::createAnnotationMetadataConfiguration([__DIR__ . "/../Entity"], $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
 
 // database configuration parameters
 $conn = [

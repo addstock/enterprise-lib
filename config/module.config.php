@@ -37,14 +37,10 @@ return [
                 ],
             ],
             'isDevMode' => false,
-        ],
-        'connection_params' => [
-            'driver'   => 'pdo_pgsql',
-            'user' => '',
-            'password' => '',
-            'host' => '',
-            'port' => '',
-            'dbname' => '',
+            'doctrine_type_mappings' => [
+                'enum' => 'string',
+                'status_options' => 'string',
+            ],
         ],
     ],
 ];

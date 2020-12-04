@@ -34,7 +34,7 @@ class Enterprise {
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="user", mappedBy="enterprise", indexBy="enterpriseId")
+     * @ORM\OneToMany(targetEntity="EnterpriseLib\Entity\User", mappedBy="enterprise")
      * @var User[]
      */
     private $users;
@@ -51,7 +51,6 @@ class Enterprise {
     }
 
     /**
-     *
      * @return String
      **/
     public function getName()
@@ -60,7 +59,6 @@ class Enterprise {
     }
 
     /**
-     *
      * @return void
      **/
     public function setName($name)
@@ -69,7 +67,6 @@ class Enterprise {
     }
 
     /**
-     *
      * @return String
      **/
     public function getLogo()
@@ -78,7 +75,6 @@ class Enterprise {
     }
 
     /**
-     *
      * @return void
      **/
     public function setLogo($logo)
@@ -87,7 +83,6 @@ class Enterprise {
     }
 
     /**
-     *
      * @return String
      **/
     public function getDescription()
@@ -96,7 +91,6 @@ class Enterprise {
     }
 
     /**
-     *
      * @return void
      **/
     public function setDescription($description)
@@ -105,7 +99,6 @@ class Enterprise {
     }
 
     /**
-     *
      * @return User[]
      **/
     public function getUsers()
@@ -114,7 +107,6 @@ class Enterprise {
     }
 
     /**
-     *
      * @return void
      **/
     public function setUsers($users)

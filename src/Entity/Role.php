@@ -1,12 +1,12 @@
 <?php
 
-namespace EnterpriseLib\Entiry;
+namespace EnterpriseLib\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="role")
+ * @ORM\Table(name="Role")
  */
 class Role {
 	/**
@@ -22,6 +22,12 @@ class Role {
      * @var string
      */
 	private $name;
+
+	/**
+	 * @ORM\OneToOne(targetEntity="EnterpriseLib\Entity\User", mappedBy="role", cascade={"persist", "remove"})
+	 * @var User
+	 */
+	private $user;
 
 
 	/**

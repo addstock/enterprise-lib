@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="users")
+ * @ORM\Table(name="User")
  */
 class User
 {
@@ -31,17 +31,18 @@ class User
     private $lastname;
 
     /**
-     * @ORM\Column(type="integer")
-     * @var int
+     * @ORM\ManyToOne(targetEntity="EnterpriseLib\Entity\Enterprise", inversedBy="users")
+     * @ORM\JoinColumn(name="enterprise_id", referencedColumnName="id")
+     * @var Enterprise|null
      */
-    private $enterpriseId;
+    private $enterprise;
 
     /**
-     * @ORM\Column(type="integer")
-     * @ORM\OneToOne(targetEntity="role", mappedBy="users")
-     * @var int
+     * @ORM\OneToOne(targetEntity="EnterpriseLib\Entity\Role", inversedBy="user", cascade={"persist", "remove"})
+     * @ORM\JoinColumn(name="role_id", referencedColumnName="id", nullable=false)
+     * @var Role
      */
-    private $assigned;
+    private $role;
 
     /**
      *
@@ -103,5 +104,23 @@ class User
     public function setEnterpriseId($enterpriseId)
     {
     	$this->enterpriseId = $enterpriseId;
+    }
+
+    /**
+     * @return Role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param Role $role
+     *
+     * @return self
+     */
+    public function setRole(Role $role)
+    {
+        $this->role = $role;
     }
 }

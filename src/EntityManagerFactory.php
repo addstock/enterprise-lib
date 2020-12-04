@@ -4,26 +4,33 @@ namespace EnterpriseLib;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
+use DomainException;
+
 /**
- *
+ * This factory gets the EntityManager as a object.
  */
 class EntityManagerFactory
 {
-	public function __invoke($services)
+    public function __invoke($services)
     {
-    	$paths = array("/path/to/entity-files");
-		$isDevMode = false;
+        if (! $services->has('config')) {
+            throw new DomainException('The config service is necessary and that\'s is unable');
+        }
 
-		// the connection configuration
-		$dbParams = array(
-		    'driver'   => 'pdo_mysql',
-		    'user'     => 'root',
-		    'password' => '',
-		    'dbname'   => 'foo',
-		);
+        $config = $services->get('config');
 
-		$config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+        if (! isset($config['doctrine']['driver']['my_annotation_driver']['paths'])) {
+            throw new DomainException('The config property is necessary and that\'s is unable');
+        }
 
-		return EntityManager::create($dbParams, $config);
+        $paths = $config['doctrine']['driver']['my_annotation_driver']['paths'];
+        $isDevMode = $config['doctrine']['driver']['isDevMode'];
+
+        // the connection configuration
+        $dbParams = $config['doctrine']['connection_params'];
+
+        $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);
+
+        return EntityManager::create($dbParams, $config);
     }
 }
